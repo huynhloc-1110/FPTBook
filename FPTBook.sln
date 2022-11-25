@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPTBook", "FPTBook\FPTBook.csproj", "{4E752DB7-57E0-4552-B0D9-CE52EDDA10D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPTBook.Tests", "FPTBook.Tests\FPTBook.Tests.csproj", "{7D6B9B0F-9718-40ED-8FFE-E92487E68570}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E752DB7-57E0-4552-B0D9-CE52EDDA10D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E752DB7-57E0-4552-B0D9-CE52EDDA10D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E752DB7-57E0-4552-B0D9-CE52EDDA10D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E752DB7-57E0-4552-B0D9-CE52EDDA10D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D6B9B0F-9718-40ED-8FFE-E92487E68570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D6B9B0F-9718-40ED-8FFE-E92487E68570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D6B9B0F-9718-40ED-8FFE-E92487E68570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D6B9B0F-9718-40ED-8FFE-E92487E68570}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {17670B1B-CDA2-44CA-902E-80816ECF828F}
+	EndGlobalSection
+EndGlobal

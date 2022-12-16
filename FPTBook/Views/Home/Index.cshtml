@@ -23,7 +23,7 @@
             <div class="thumbnail">
                 <a href="@Url.Action("Details","Books", new { id = book.Id})"><img src="@book.CoverUrl" alt="@book.Name's cover"></a>
                 <div class="caption">
-                    <a href="#" role="button">@book.Name</a>
+                    <a href="@Url.Action("Details","Books", new { id = book.Id})" role="button">@book.Name</a>
                     <p>@book.Description.Substring(0, 100)...</p>
                 </div>
             </div>

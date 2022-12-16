@@ -1,23 +1,18 @@
-﻿@{
+﻿@model ICollection<FPTBook.Models.Book>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="row equal">
-    @for (int i = 0; i < 3; i++)
+    @foreach (var book in Model)
     {
         <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="thumbnail">
-                <img src="https://cdnb.artstation.com/p/assets/images/images/040/697/075/large/djigui-tim-cover-tome-2-one-piece-djiguito.jpg" alt="one piece's cover'">
+                <a href="@Url.Action("Details","Books", new { id = book.Id})"><img src="@book.CoverUrl" alt="@book.Name's cover"></a>
                 <div class="caption">
-                    <a href="#" class="btn btn-default" role="button">One Piece Vol.5</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="thumbnail">
-                <img src="https://learning.oreilly.com/library/cover/9781492091646/250w/" alt="head first java's cover'">
-                <div class="caption">
-                    <a href="#" class="btn btn-default" role="button">Head First Java</a>
+                    <a href="#" role="button">@book.Name</a>
+                    <p>@book.Description.Substring(0,100)...</p>
                 </div>
             </div>
         </div>

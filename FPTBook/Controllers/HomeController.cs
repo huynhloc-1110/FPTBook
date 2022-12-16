@@ -6,11 +6,12 @@ using System.Web.Mvc;
 
 namespace FPTBook.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
-            return View();
+            var books = _db.Books.ToList();
+            return View(books);
         }
     }
 }

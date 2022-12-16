@@ -35,3 +35,11 @@ textarea {
     flex-wrap: wrap;
     align-items: stretch;
 }
+
+.caption a {
+    font-size: 18px;
+}
+
+.caption p {
+    margin-top: 10px;
+}

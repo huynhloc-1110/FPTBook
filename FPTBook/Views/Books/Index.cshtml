@@ -4,7 +4,17 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="search-bar">
+    <form method="get">
+        <div class="input-group">
+            <input type="text" class="form-control" name="search" placeholder="Search for...">
+            <div class="input-group-btn">
+                <input class="btn btn-success" type="submit" value="Search">
+            </div>
+        </div>
+
+    </form>
+</div>
 
 <p>
     @Html.ActionLink("Create New", "Create")

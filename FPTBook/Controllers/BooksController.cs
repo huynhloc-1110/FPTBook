@@ -14,10 +14,19 @@ namespace FPTBook.Controllers
     public class BooksController : BaseController
     {
         // GET: Books
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            var books = db.Books.Include(b => b.Category);
-            return View(books.ToList());
+            var books = from b in db.Books
+                        select b;
+            if (!string.IsNullOrEmpty(search))
+            {
+                books = books.Where(b => b.Name.Contains(search));
+            }
+
+            return View(books
+                .Include(b => b.Category)
+                .OrderBy(b => b.CreatedDateTime)
+                .ToList());
         }
 
         // GET: Books/Details/5

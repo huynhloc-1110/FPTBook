@@ -11,18 +11,14 @@ namespace FPTBook.Controllers
     {
         public ActionResult Index(string search)
         {
-            List<Book> books;
-            if (string.IsNullOrEmpty(search))
+            var books = from b in db.Books
+                        select b;
+            if (!string.IsNullOrEmpty(search))
             {
-                books = db.Books.OrderBy(b => b.CreatedDateTime).ToList();
-                return View(books);
+                books = books.Where(b => b.Name.Contains(search));
             }
 
-            books = db.Books
-                .Where(b => b.Name.Contains(search))
-                .OrderBy(b => b.CreatedDateTime)
-                .ToList();
-            return View(books);
+            return View(books.OrderBy(b => b.CreatedDateTime).ToList());
         }
     }
 }

@@ -85,19 +85,40 @@
 
         private void CreateSeveralBooks(ApplicationDbContext context)
         {
+            // add categories
+            context.Categories.Add(new Category()
+            {
+                Name = "Reference Book",
+                Description = "A book intended to be consulted for information on specific matters rather than read from beginning to end.",
+                CreatedDateTime = DateTime.Now,
+                UpdatedDateTime = DateTime.Now
+            });
+
+            context.Categories.Add(new Category()
+            {
+                Name = "Light Novel",
+                Description = "A style of young adult novel primarily targeting high school and middle school students.",
+                CreatedDateTime = DateTime.Now,
+                UpdatedDateTime = DateTime.Now
+            });
+
+            context.Categories.Add(new Category()
+            {
+                Name = "Textbook",
+                Description = "A book that teaches a particular subject and that is used especially in schools and colleges.",
+                CreatedDateTime = DateTime.Now,
+                UpdatedDateTime = DateTime.Now
+            });
+
+            context.SaveChanges();
+
+            // add books
             context.Books.Add(new Book()
             {
                 Name = "Projects in Computing and Information Systems",
                 Author = "Christian W. Dawson",
                 Description = "Undertaking an academic project is a key feature of most of today's computing and information systems degree programmes. Simply put, this book provides the reader with everything they will need to successfully complete their computing project.",
-                Category = new Category()
-                {
-                    Name = "Reference Book",
-                    Description = "A book intended to be consulted for information on specific matters rather than read from beginning to end.",
-                    CreatedDateTime = DateTime.Now,
-                    UpdatedDateTime = DateTime.Now
-                },
-
+                Category = context.Categories.First(c => c.Name == "Reference Book"),
                 CoverUrl = "https://cdn.discordapp.com/attachments/1045548142558445608/1053167446367932456/s-l500.png",
                 Price = 4,
                 StockedQuantity= 3200,
@@ -110,19 +131,51 @@
                 Name = "Jikyu 300 en no shinigami",
                 Author = "Fujimaru",
                 Description = "One day, high school student Sakura Shinji is invited by her classmate Hanamori Yuki to work as a \"God of Death\", a job that helps the dead who have not yet escaped, still entangled with their earthly life. all the nostalgia and send them to the other world.",
-                Category = new Category()
-                {
-                    Name = "Light Novel",
-                    Description = "A style of young adult novel primarily targeting high school and middle school students.",
-                    CreatedDateTime = DateTime.Now,
-                    UpdatedDateTime = DateTime.Now
-                },
-
+                Category = context.Categories.First(c => c.Name == "Light Novel"),
                 CoverUrl = "https://cdn.discordapp.com/attachments/1045548142558445608/1053169658552922206/fetch.png",
                 Price = 4.67M,
                 StockedQuantity = 2100,
                 CreatedDateTime = new DateTime(2019, 6, 26),
                 UpdatedDateTime = new DateTime(2019, 6, 26)
+            });
+
+            context.Books.Add(new Book()
+            {
+                Name = "Math Analysis 12",
+                Author = "Ministry of Education and Training",
+                Description = "The book is used for Teachers and students study at high schools and educational institutions across the country with the basic math knowledge that every 12th grader should have. The book also helps readers look up the standard knowledge of Math Analysis 12.",
+                Category = context.Categories.First(c => c.Name == "Textbook"),
+                CoverUrl = "https://cdn.discordapp.com/attachments/1045548142558445608/1053170629702074468/sach-giao-khoa-giai-tich-12-co-ban.png",
+                Price = 0.42M,
+                StockedQuantity = 2900,
+                CreatedDateTime = new DateTime(2022, 2, 16),
+                UpdatedDateTime = new DateTime(2022, 2, 16)
+            });
+
+            context.Books.Add(new Book()
+            {
+                Name = "Computer Networking: A Top-Down Approach",
+                Author = "James Kurose",
+                Description = "Focusing on the Internet and the fundamentally important issues of networking, this book provides an excellent foundation for readers interested in computer science and electrical engineering, without requiring extensive knowledge of programming or mathematics.",
+                Category = context.Categories.First(c => c.Name == "Reference Book"),
+                CoverUrl = "https://bizweb.dktcdn.net/100/351/397/products/51xp1odrmlsx402bo1204203200.jpg",
+                Price = 53.35M,
+                StockedQuantity = 800,
+                CreatedDateTime = new DateTime(2016, 4, 26),
+                UpdatedDateTime = new DateTime(2016, 4, 26)
+            });
+
+            context.Books.Add(new Book()
+            {
+                Name = "5 Centimeters per Second",
+                Author = "Makoto Shinkai",
+                Description = "Love can move at the speed of terminal velocity, but as award-winning director Makoto Shinkai reveals in his latest comic, it can only be shared and embraced by those who refuse to see it stop.",
+                Category = context.Categories.First(c => c.Name == "Light Novel"),
+                CoverUrl = "https://upload.wikimedia.org/wikipedia/vi/thumb/1/11/Byousoku_5_Centimeter_DVD_cover.jpg/330px-Byousoku_5_Centimeter_DVD_cover.jpg",
+                Price = 11.99M,
+                StockedQuantity = 1200,
+                CreatedDateTime = new DateTime(2012, 6, 26),
+                UpdatedDateTime = new DateTime(2012, 6, 26)
             });
         }
 

@@ -14,11 +14,14 @@ namespace FPTBook.Controllers
             List<Book> books;
             if (string.IsNullOrEmpty(search))
             {
-                books = db.Books.ToList();
+                books = db.Books.OrderBy(b => b.CreatedDateTime).ToList();
                 return View(books);
             }
 
-            books = db.Books.Where(b => b.Name.Contains(search)).ToList();
+            books = db.Books
+                .Where(b => b.Name.Contains(search))
+                .OrderBy(b => b.CreatedDateTime)
+                .ToList();
             return View(books);
         }
     }

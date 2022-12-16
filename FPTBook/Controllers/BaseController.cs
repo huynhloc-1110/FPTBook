@@ -9,6 +9,6 @@ namespace FPTBook.Controllers
 {
     public class BaseController : Controller
     {
-        protected ApplicationDbContext _db = new ApplicationDbContext();
+        protected ApplicationDbContext db = new ApplicationDbContext();
     }
 }

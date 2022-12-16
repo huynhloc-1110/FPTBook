@@ -11,10 +11,8 @@ using FPTBook.Models;
 namespace FPTBook.Controllers
 {
     [Authorize(Roles = "Store Owner")]
-    public class BooksController : Controller
+    public class BooksController : BaseController
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-
         // GET: Books
         public ActionResult Index()
         {

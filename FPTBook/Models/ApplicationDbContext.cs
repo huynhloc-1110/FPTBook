@@ -26,6 +26,7 @@ namespace FPTBook.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<OrderDetail>().HasKey(od => new { od.OrderId, od.BookId });
         }
     }

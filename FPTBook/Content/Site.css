@@ -54,3 +54,11 @@ textarea {
 .search-bar .input-group .form-control {
     width: 70vw;
 }
+
+.top-gap {
+    margin-top: 25px;
+}
+
+.big-cover {
+    max-width: 400px;
+}

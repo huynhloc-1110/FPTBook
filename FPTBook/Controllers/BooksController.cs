@@ -21,6 +21,7 @@ namespace FPTBook.Controllers
         }
 
         // GET: Books/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)

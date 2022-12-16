@@ -30,7 +30,6 @@ namespace FPTBook.Models
 
         [Range(1,10000)]
         [DataType(DataType.Currency)]
-        [Column(TypeName = "decimal(18,2)")]
         [Required]
         public decimal Price { get; set; }
 

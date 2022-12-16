@@ -17,7 +17,6 @@ namespace FPTBook.Models
 
         [Range(0, double.MaxValue)]
         [DataType(DataType.Currency)]
-        [Column(TypeName = "decimal(18,2)")]
         [Required]
         public decimal TotalPrice { get; set; }
 

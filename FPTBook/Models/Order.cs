@@ -25,5 +25,9 @@ namespace FPTBook.Models
         [Display(Name = "Created at")]
         [Required]
         public DateTime CreatedDateTime { get; set; }
+
+        public virtual ICollection<Book> Books { get; set; }
+
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

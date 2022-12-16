@@ -48,5 +48,9 @@ namespace FPTBook.Models
         [Display(Name = "Updated at")]
         [Required]
         public DateTime UpdatedDateTime { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
+
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

@@ -5,11 +5,11 @@
 }
 
 <div class="row top-gap">
-    <div class="col-lg-4">
+    <div class="col-md-4 img-container">
         <img src="@Html.DisplayFor(model => model.CoverUrl)" , alt="@Html.DisplayFor(model => model.Name)'s Cover" class="big-cover" />
     </div>
 
-    <div class="col-lg-8">
+    <div class="col-md-8">
         <dl class="dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.Name)
@@ -78,12 +78,10 @@
             <dd class="top-gap">
                 @if (User.IsInRole("Store Owner"))
                 {
-                    <p>
-                        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
-                    </p>
-                }
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
 
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+                }
             </dd>
         </dl>
     </div>

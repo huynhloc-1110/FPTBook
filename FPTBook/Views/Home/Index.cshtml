@@ -4,6 +4,18 @@
     ViewBag.Title = "Home Page";
 }
 
+<div class="search-bar">
+    <form method="get">
+        <div class="input-group">
+            <input type="text" class="form-control" name="search" placeholder="Search for...">
+            <div class="input-group-btn">
+                <input class="btn btn-success" type="submit" value="Search">
+            </div>
+        </div>
+
+    </form>
+</div>
+
 <div class="row equal">
     @foreach (var book in Model)
     {
@@ -12,7 +24,7 @@
                 <a href="@Url.Action("Details","Books", new { id = book.Id})"><img src="@book.CoverUrl" alt="@book.Name's cover"></a>
                 <div class="caption">
                     <a href="#" role="button">@book.Name</a>
-                    <p>@book.Description.Substring(0,100)...</p>
+                    <p>@book.Description.Substring(0, 100)...</p>
                 </div>
             </div>
         </div>

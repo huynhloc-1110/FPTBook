@@ -43,3 +43,14 @@ textarea {
 .caption p {
     margin-top: 10px;
 }
+
+.search-bar {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+.search-bar .input-group .form-control {
+    width: 70vw;
+}

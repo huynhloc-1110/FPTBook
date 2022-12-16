@@ -28,7 +28,7 @@ namespace FPTBook.Models
         [DataType(DataType.ImageUrl)]
         public string CoverUrl { get; set; }
 
-        [Range(1,10000)]
+        [Range(0,10000)]
         [DataType(DataType.Currency)]
         [Required]
         public decimal Price { get; set; }

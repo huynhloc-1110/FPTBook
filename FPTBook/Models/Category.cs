@@ -12,6 +12,7 @@ namespace FPTBook.Models
         public int Id { get; set; }
 
         [StringLength(128, MinimumLength = 3)]
+        [Display(Name = "Category")]
         [Required]
         public string Name { get; set; }
 

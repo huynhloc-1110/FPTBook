@@ -26,6 +26,7 @@ namespace FPTBook.Models
         public virtual Category Category { get; set; }
 
         [DataType(DataType.ImageUrl)]
+        [Display(Name = "Cover")]
         public string CoverUrl { get; set; }
 
         [Range(0,10000)]

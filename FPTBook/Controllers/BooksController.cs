@@ -66,6 +66,7 @@ namespace FPTBook.Controllers
                 book.CreatedDateTime = DateTime.Now;
                 book.UpdatedDateTime = DateTime.Now;
 
+                book.CoverUrl = "book0.jpg"; // default book cover
                 if (coverImg != null)
                 {
                     var fileName = Guid.NewGuid().ToString() + ".jpg";

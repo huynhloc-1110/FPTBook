@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -57,12 +58,26 @@ namespace FPTBook.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Author,Description,CategoryId,CoverUrl,Price,StockedQuantity,CreatedDateTime,UpdatedDateTime")] Book book)
+        public ActionResult Create([Bind(Include = "Id,Name,Author,Description,CategoryId,CoverUrl,Price,StockedQuantity,CreatedDateTime,UpdatedDateTime")] Book book, HttpPostedFileBase coverImg)
         {
             if (ModelState.IsValid)
             {
+                // automatically update created and updated datetime
+                book.CreatedDateTime = DateTime.Now;
+                book.UpdatedDateTime = DateTime.Now;
+
+                if (coverImg != null)
+                {
+                    var fileName = Guid.NewGuid().ToString() + ".jpg";
+                    var sysPath = Path.Combine(Server.MapPath("~/Content/Images/Books"), fileName);
+
+                    coverImg.SaveAs(sysPath);
+                    book.CoverUrl = fileName;
+                }
+
                 db.Books.Add(book);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 

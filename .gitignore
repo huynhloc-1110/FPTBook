@@ -363,5 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # Server data images
-Content/Images/Books/*
-!Content/Images/Books/book*.jpg
+FPTBook/Content/Images/Books/*
+!FPTBook/Content/Images/Books/book*.jpg

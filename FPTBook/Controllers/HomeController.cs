@@ -19,7 +19,7 @@ namespace FPTBook.Controllers
                 books = books.Where(b => b.Name.Contains(search));
             }
 
-            return View(books.OrderBy(b => b.CreatedDateTime).ToList());
+            return View(books.OrderByDescending(b => b.CreatedDateTime).ToList());
         }
     }
 }

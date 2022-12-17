@@ -27,7 +27,7 @@ namespace FPTBook.Controllers
 
             return View(books
                 .Include(b => b.Category)
-                .OrderBy(b => b.CreatedDateTime)
+                .OrderByDescending(b => b.CreatedDateTime)
                 .ToList());
         }
 

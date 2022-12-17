@@ -66,6 +66,7 @@ namespace FPTBook.Controllers
                 book.CreatedDateTime = DateTime.Now;
                 book.UpdatedDateTime = DateTime.Now;
 
+                // save cover image to server and update cover url
                 book.CoverUrl = "book0.jpg"; // default book cover
                 if (coverImg != null)
                 {
@@ -107,8 +108,25 @@ namespace FPTBook.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Author,Description,CategoryId,CoverUrl,Price,StockedQuantity,CreatedDateTime,UpdatedDateTime")] Book book)
+        public ActionResult Edit([Bind(Include = "Id,Name,Author,Description,CategoryId,CoverUrl,Price,StockedQuantity,CreatedDateTime,UpdatedDateTime")] Book book, HttpPostedFileBase coverImg)
         {
+            // automatically update updated datetime
+            book.UpdatedDateTime = DateTime.Now;
+
+            // save cover image to server and update cover url
+            if (coverImg != null)
+            {
+                var fileName = book.CoverUrl;
+                // generate new file name if book0.jpg (no cover image)
+                if (book.CoverUrl == "book0.jpg")
+                    fileName = Guid.NewGuid().ToString() + ".jpg";
+
+                var sysPath = Path.Combine(Server.MapPath("~/Content/Images/Books"), fileName);
+
+                coverImg.SaveAs(sysPath);
+                book.CoverUrl = fileName;
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(book).State = EntityState.Modified;
@@ -140,6 +158,12 @@ namespace FPTBook.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Book book = db.Books.Find(id);
+            if (book.CoverUrl != "book0.jpg")
+            {
+                var path = Path.Combine(Server.MapPath("~/Content/Images/Books"), book.CoverUrl);
+                System.IO.File.Delete(path);
+            }
+
             db.Books.Remove(book);
             db.SaveChanges();
             return RedirectToAction("Index");

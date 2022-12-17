@@ -21,7 +21,7 @@
     {
         <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="thumbnail">
-                <a href="@Url.Action("Details","Books", new { id = book.Id})"><img src="@book.CoverUrl" alt="@book.Name's cover"></a>
+                <a href="@Url.Action("Details","Books", new { id = book.Id})"><img src="~/Content/Images/Books/@book.CoverUrl" alt="@book.Name's cover"></a>
                 <div class="caption">
                     <a href="@Url.Action("Details","Books", new { id = book.Id})" role="button">@book.Name</a>
                     <p>@book.Description.Substring(0, 100)...</p>

@@ -6,7 +6,7 @@
 
 <div class="row top-gap">
     <div class="col-md-4 img-container">
-        <img src="@Html.DisplayFor(model => model.CoverUrl)" , alt="@Html.DisplayFor(model => model.Name)'s Cover" class="big-cover" />
+        <img src="~/Content/Images/Books/@Html.DisplayFor(model => model.CoverUrl)" , alt="@Html.DisplayFor(model => model.Name)'s Cover" class="big-cover" />
     </div>
 
     <div class="col-md-8">
@@ -78,7 +78,7 @@
             <dd class="top-gap">
                 @if (User.IsInRole("Store Owner"))
                 {
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning" })
 
                     @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
                 }

@@ -15,6 +15,7 @@ namespace FPTBook.Controllers
                         select b;
             if (!string.IsNullOrEmpty(search))
             {
+                ViewBag.Search = search;
                 books = books.Where(b => b.Name.Contains(search));
             }
 
